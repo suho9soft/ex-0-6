@@ -2,6 +2,7 @@
 Python
 아두이노 코드 (4개의 LED 제어)
 아두이노의 핀 4개에 LED를 연결하고, 파이썬으로 버튼 신호를 보내 제어합니다.
+///
 
 #define LED1 2
 #define LED2 3
@@ -56,7 +57,7 @@ void loop() {
 파이썬 코드 (4개의 버튼으로 제어)
 파이썬 프로그램에 4개의 버튼을 추가하여 각각의 LED를 켜고 끌 수 있도록 설정합니다.
 그리고 Python 이게 명령프롬프트 에서 작성 하는 것니다 그리고 폼으로 도 작성해 보겠습니다
-
+///
 
 import serial
 import time
@@ -116,3 +117,4 @@ while True:
 arduino.close()
 
 
+///
