@@ -4,7 +4,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 # 아두이노 포트를 설정하세요
-arduino_port = 'COM16'  # 실제 포트로 변경
+arduino_port = 'COM10'  # 실제 포트로 변경
 baud_rate = 9600
 
 # 직렬 포트 연결
@@ -25,9 +25,9 @@ def control_led(command):
 # GUI 설정
 root = tk.Tk()
 root.title("LED Controller")
-root.geometry("400x300")
+root.geometry("500x400")  # 창 크기 조정
 
-# 버튼 정의
+# 버튼 정의 (8개 버튼, LED ON/OFF)
 buttons = [
     {"text": "LED1 ON", "command": "1", "bg": "green"},
     {"text": "LED1 OFF", "command": "2", "bg": "red"},
@@ -36,10 +36,18 @@ buttons = [
     {"text": "LED3 ON", "command": "5", "bg": "green"},
     {"text": "LED3 OFF", "command": "6", "bg": "red"},
     {"text": "LED4 ON", "command": "7", "bg": "green"},
-    {"text": "LED4 OFF", "command": "8", "bg": "red"}
+    {"text": "LED4 OFF", "command": "8", "bg": "red"},
+    {"text": "LED5 ON", "command": "9", "bg": "green"},
+    {"text": "LED5 OFF", "command": "A", "bg": "red"},
+    {"text": "LED6 ON", "command": "B", "bg": "green"},
+    {"text": "LED6 OFF", "command": "C", "bg": "red"},
+    {"text": "LED7 ON", "command": "D", "bg": "green"},
+    {"text": "LED7 OFF", "command": "E", "bg": "red"},
+    {"text": "LED8 ON", "command": "F", "bg": "green"},
+    {"text": "LED8 OFF", "command": "G", "bg": "red"}
 ]
 
-# 버튼 생성
+# 버튼 생성 (8개의 LED 버튼)
 for i, btn in enumerate(buttons):
     button = tk.Button(
         root,
@@ -49,7 +57,7 @@ for i, btn in enumerate(buttons):
         font=("Arial", 12),
         command=lambda cmd=btn["command"]: control_led(cmd)
     )
-    button.grid(row=i // 2, column=i % 2, padx=10, pady=10, ipadx=20, ipady=10)
+    button.grid(row=i // 4, column=i % 4, padx=10, pady=10, ipadx=20, ipady=10)
 
 # 종료 버튼
 exit_button = tk.Button(
@@ -60,7 +68,7 @@ exit_button = tk.Button(
     font=("Arial", 12),
     command=lambda: (arduino.close(), root.destroy())
 )
-exit_button.grid(row=4, column=0, columnspan=2, pady=10)
+exit_button.grid(row=5, column=0, columnspan=4, pady=10)  # 종료 버튼 위치 조정
 
 # GUI 실행
 root.mainloop()
