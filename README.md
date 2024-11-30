@@ -24,4 +24,6 @@ pip install paho-mqtt Adafruit_DHT RPi.GPIO를 사용하여 필요한 Python 패
 
 코드에 수정하거나 추가하고 싶은 다른 것이 있습니까?
 
+않된다는게 아니고 된다고 하면 그렇구요 말을 못 하겠습니다 지금 막 하는데 실패 한 사람들이 많아요
+
 
